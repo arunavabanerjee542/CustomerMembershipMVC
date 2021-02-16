@@ -3,14 +3,16 @@ using EntityFrameworkMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EntityFrameworkMVC.Migrations
 {
     [DbContext(typeof(CustomerAppDb))]
-    partial class CustomerAppDbModelSnapshot : ModelSnapshot
+    [Migration("20210216070127_AddMembershipTypeColumn")]
+    partial class AddMembershipTypeColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,26 +38,6 @@ namespace EntityFrameworkMVC.Migrations
                     b.HasIndex("MemberShipId");
 
                     b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            CustomerId = 4,
-                            MemberShipId = 1,
-                            Name = "Ram"
-                        },
-                        new
-                        {
-                            CustomerId = 5,
-                            MemberShipId = 2,
-                            Name = "Rama"
-                        },
-                        new
-                        {
-                            CustomerId = 6,
-                            MemberShipId = 3,
-                            Name = "Ramji"
-                        });
                 });
 
             modelBuilder.Entity("EntityFrameworkMVC.Models.MemberShip", b =>
@@ -81,40 +63,6 @@ namespace EntityFrameworkMVC.Migrations
                     b.HasKey("MemberShipId");
 
                     b.ToTable("Memberships");
-
-                    b.HasData(
-                        new
-                        {
-                            MemberShipId = 1,
-                            Discount = 0,
-                            DurationInMonths = 0,
-                            MembershipType = "Pay AS You Go",
-                            SignUpFee = 0
-                        },
-                        new
-                        {
-                            MemberShipId = 2,
-                            Discount = 10,
-                            DurationInMonths = 3,
-                            MembershipType = "Quaterly",
-                            SignUpFee = 300
-                        },
-                        new
-                        {
-                            MemberShipId = 3,
-                            Discount = 15,
-                            DurationInMonths = 6,
-                            MembershipType = "Half Yearly",
-                            SignUpFee = 600
-                        },
-                        new
-                        {
-                            MemberShipId = 4,
-                            Discount = 20,
-                            DurationInMonths = 12,
-                            MembershipType = "Yearly",
-                            SignUpFee = 900
-                        });
                 });
 
             modelBuilder.Entity("EntityFrameworkMVC.Models.Customer", b =>

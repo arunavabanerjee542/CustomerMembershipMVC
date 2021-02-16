@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,6 +17,8 @@ namespace EntityFrameworkMVC.Models
         public int SignUpFee { get; set; }
         public  int DurationInMonths{ get; set; }
         public int Discount{ get; set; }
+        [Required]
+        public string MembershipType { get; set; }
 
         public ICollection<Customer> Customers { get; set; }
 

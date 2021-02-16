@@ -16,31 +16,30 @@ namespace EntityFrameworkMVC.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+          
 
             modelBuilder.Entity<MemberShip>().HasData(
 
              new MemberShip()
-            { DurationInMonths = 0, SignUpFee = 0, Discount = 0, MemberShipId = 1 },
+            { DurationInMonths = 0, SignUpFee = 0, Discount = 0, MemberShipId = 1,MembershipType="Pay AS You Go" },
 
              new MemberShip()
-            { DurationInMonths = 3, SignUpFee = 300, Discount = 10, MemberShipId = 2 },
+            { DurationInMonths = 3, SignUpFee = 300, Discount = 10, MemberShipId = 2, MembershipType = "Quaterly" },
 
             new MemberShip()
-            { DurationInMonths = 6, SignUpFee = 600, Discount = 15, MemberShipId = 3 },
+            { DurationInMonths = 6, SignUpFee = 600, Discount = 15, MemberShipId = 3, MembershipType = "Half Yearly" },
 
           new MemberShip()
-            { DurationInMonths = 12, SignUpFee = 900, Discount = 20, MemberShipId = 4 }
+            { DurationInMonths = 12, SignUpFee = 900, Discount = 20, MemberShipId = 4, MembershipType = "Yearly" }
 
         );
 
+           
             modelBuilder.Entity<Customer>().HasData(
              new Customer() { Name = "Ram", CustomerId = 4,MemberShipId=1 },
              new Customer() { Name = "Rama", CustomerId = 5 ,MemberShipId=2},
-              new Customer() { Name = "Ramji", CustomerId = 6,MemberShipId=2}
+              new Customer() { Name = "Ramji", CustomerId = 6,MemberShipId=3}
              );
-
-           
-
 
         }
      

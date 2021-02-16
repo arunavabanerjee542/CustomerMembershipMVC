@@ -1,8 +1,35 @@
-﻿@{
+﻿@model IEnumerable<MemberShip>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Customer Name</th>
+            <th scope="col">MemberShip Type</th>
+        </tr>
+    </thead>
+
+
+    @foreach (var memberShip in Model)
+    {
+        @foreach (var customer in memberShip.Customers)
+        {
+            <tr>
+                <td>
+                    @customer.Name
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id=@customer.CustomerId>@memberShip.MembershipType </a>
+                </td>
+            </tr>
+        }
+
+
+    }
+
+
+</table>
+

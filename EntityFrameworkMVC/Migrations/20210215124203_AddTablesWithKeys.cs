@@ -6,6 +6,7 @@ namespace EntityFrameworkMVC.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            /*
             migrationBuilder.CreateTable(
                 name: "Memberships",
                 columns: table => new
@@ -46,15 +47,18 @@ namespace EntityFrameworkMVC.Migrations
                 name: "IX_Customers_MemberShipId",
                 table: "Customers",
                 column: "MemberShipId");
+            */
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            /*
             migrationBuilder.DropTable(
                 name: "Customers");
 
             migrationBuilder.DropTable(
                 name: "Memberships");
+            */
         }
     }
 }

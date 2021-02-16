@@ -6,6 +6,7 @@ namespace EntityFrameworkMVC.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            /*
             migrationBuilder.DropForeignKey(
                 name: "FK_Customers_Memberships_MemberShipId",
                 table: "Customers");
@@ -29,10 +30,12 @@ namespace EntityFrameworkMVC.Migrations
                 principalTable: "Memberships",
                 principalColumn: "MemberShipId",
                 onDelete: ReferentialAction.Cascade);
+            */
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            /*
             migrationBuilder.DropForeignKey(
                 name: "FK_Customers_Memberships_MemberShipId",
                 table: "Customers");
@@ -58,6 +61,7 @@ namespace EntityFrameworkMVC.Migrations
                 principalTable: "Memberships",
                 principalColumn: "MemberShipId",
                 onDelete: ReferentialAction.Restrict);
+            */
         }
     }
 }

@@ -27,6 +27,7 @@ namespace EntityFrameworkMVC
         {
             services.AddControllersWithViews();
             services.AddDbContext<CustomerAppDb>(opt => opt.UseSqlServer(Configuration["ConnectionStrings:CustomerDbConnection"]));
+            services.AddScoped<ICustomerRepository, SqlCustomerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
 ﻿using EntityFrameworkMVC.Models;
+using EntityFrameworkMVC.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,17 +12,28 @@ namespace EntityFrameworkMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       // private readonly ILogger<HomeController> _logger;
+        private ICustomerRepository _customerRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ICustomerRepository customerRepository)
         {
-            _logger = logger;
+           // _logger = logger;
+            _customerRepository = customerRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+           IEnumerable<MemberShip> customers= _customerRepository.GetAllCustomerDetails();
+            return View(customers);
         }
+
+        [Route("Home/Details/{id}")]
+        public IActionResult Details(int id)
+        {
+            var customer =_customerRepository.GetCustomerById(id);           
+            return View(customer);
+        }
+
 
         public IActionResult Privacy()
         {
